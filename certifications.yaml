@@ -24,3 +24,7 @@ certifications:
       - Node.js
       - Javascript
       - Typescript
+  - url: "https://udemy.com/certificate/go-lang"
+    skills:
+      - Go
+      - Operating System
