@@ -1,0 +1,21 @@
+certifications:
+  - url: "https://www.credly.com/badges/aws-solutions-architect"
+    skills:
+      - AWS
+      - Cloud Architecture
+      - Networking
+      - Security
+
+  - url: "https://coursera.org/verify/google-data-analytics"
+    skills:
+      - SQL
+      - Data Visualization
+      - Spreadsheets
+      - Data Cleaning
+
+  - url: "https://udemy.com/certificate/spring-boot-microservices"
+    skills:
+      - Spring Boot
+      - REST APIs
+      - Microservices
+      - Docker
