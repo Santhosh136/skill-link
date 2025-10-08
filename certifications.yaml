@@ -19,3 +19,8 @@ certifications:
       - REST APIs
       - Microservices
       - Docker
+  - url: "https://udemy.com/certificate/node-js"
+    skills:
+      - Node.js
+      - Javascript
+      - Typescript
