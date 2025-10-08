@@ -57,7 +57,7 @@
     const select = document.getElementById('skillSelect');
 
     // Fetch the YAML file
-    fetch('certifications.yaml')
+    fetch('certifications.yaml?cb='+ new Date().getTime())
       .then(response => response.text())
       .then(yamlText => {
         const data = jsyaml.load(yamlText);
