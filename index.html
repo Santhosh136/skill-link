@@ -3,104 +3,84 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Certifications</title>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <title>Santhosh — Portfolio</title>
   <style>
     body {
-      font-family: 'Fira Code', monospace;
-      background-color: #ffffff;
-      color: #000000;
-      margin: 2rem auto;
-      max-width: 750px;
+      font-family: 'Courier New', monospace;
+      background-color: #fff;
+      color: #000;
+      padding: 40px;
+      max-width: 700px;
+      margin: auto;
       line-height: 1.6;
-      white-space: pre-wrap;
     }
-    h1 {
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
+
+    h1, h2, p {
+      margin: 0 0 10px 0;
     }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin: 15px 0;
+      object-fit: cover;
+    }
+
     .prompt {
-      display: flex;
-      align-items: center;
-      margin-bottom: 1rem;
+      margin-top: 20px;
     }
-    .prompt span {
-      margin-right: 0.5rem;
+
+    .arrow {
+      color: #555;
     }
-    select {
-      font-family: 'Fira Code', monospace;
-      font-size: 1rem;
-      border: none;
-      border-bottom: 1px solid #000;
-      background: transparent;
-      outline: none;
-      padding: 2px 4px;
+
+    .links {
+      margin-top: 20px;
+    }
+
+    .links div {
+      margin-bottom: 5px;
+    }
+
+    .comment {
+      color: #777;
     }
   </style>
 </head>
 <body>
-  <h1>$ show certifications</h1>
+  <h1>➜ Hello, I'm Santhosh 👋</h1>
+
+  <div class="comment"># Software Engineer | Builder of scalable backends | Curious tinkerer</div>
+
+  <img src="profile.jpg" alt="Santhosh Picture" />
 
   <div class="prompt">
-    <span>➜ &nbsp; select skill:</span>
-    <select id="skillSelect">
-      <option value="all">-- all --</option>
-    </select>
+    <span class="arrow">➜</span> <span>About me:</span><br />
+    <p>
+      Passionate about designing clean, efficient, and scalable systems.  
+      I love working with Python, Java, and Node.js to build distributed applications, and occasionally explore IoT and automation.
+    </p>
   </div>
 
-  <div id="cert-list">Loading certifications...</div>
+  <div class="links">
+    <div><span class="arrow">➜</span> <a href="https://github.com/Santhosh136" target="_blank">GitHub</a></div>
+    <div><span class="arrow">➜</span> <a href="https://linkedin.com/in/santhosh-selvaraj" target="_blank">LinkedIn</a></div>
+    <div><span class="arrow">➜</span> <a href="skills.html">Skills</a></div>
+    <div><span class="arrow">➜</span> <a href="drawings.html">My Drawings</a></div>
+  </div>
 
-  <!-- js-yaml library -->
-  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
-  <script>
-    const container = document.getElementById('cert-list');
-    const select = document.getElementById('skillSelect');
-
-    // Fetch the YAML file
-    fetch('certifications.yaml?cb='+ new Date().getTime())
-      .then(response => response.text())
-      .then(yamlText => {
-        const data = jsyaml.load(yamlText);
-
-        // Gather unique skills
-        const skills = new Set();
-        data.certifications.forEach(cert => cert.skills.forEach(skill => skills.add(skill)));
-        [...skills].sort().forEach(skill => {
-          const opt = document.createElement('option');
-          opt.value = skill;
-          opt.textContent = skill;
-          select.appendChild(opt);
-        });
-
-        // Function to render filtered certifications
-        function renderCerts(filterSkill = 'all') {
-          let output = "";
-          const filtered = (filterSkill === 'all')
-            ? data.certifications
-            : data.certifications.filter(cert => cert.skills.includes(filterSkill));
-
-          if (filtered.length === 0) {
-            output = `➜  No certifications found for "${filterSkill}".\n`;
-          } else {
-            filtered.forEach(cert => {
-              output += `➜  ${cert.url}\n`;
-              output += `    └─ Skills: ${cert.skills.join(', ')}\n\n`;
-            });
-          }
-          container.textContent = output;
-        }
-
-        // Initial render (all)
-        renderCerts();
-
-        // On dropdown change
-        select.addEventListener('change', e => renderCerts(e.target.value));
-
-      })
-      .catch(err => {
-        container.textContent = "Error loading certifications.yaml";
-        console.error(err);
-      });
-  </script>
+  <div class="comment" style="margin-top: 40px;">
+    # Built with HTML, YAML & GitHub Pages automation ✨
+  </div>
 </body>
 </html>
