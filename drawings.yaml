@@ -1,0 +1,109 @@
+drawings:
+  - title: "Digital Portrait Study"
+    year: 2024
+    medium: "Digital Art (Procreate)"
+    description: "Realistic portrait study focusing on lighting and shadows"
+    categories:
+      - portraits
+      - digital
+    tools:
+      - Procreate
+      - iPad Pro
+      - Apple Pencil
+    
+  - title: "Mountain Landscape Sketch"
+    year: 2024
+    medium: "Pencil on Paper"
+    description: "Scenic mountain landscape with detailed shading techniques"
+    categories:
+      - traditional
+      - sketches
+      - landscapes
+    tools:
+      - 2B Pencil
+      - 4B Pencil
+      - Blending Stump
+      - Sketch Paper
+    
+  - title: "Abstract Color Study"
+    year: 2024
+    medium: "Digital Art (Photoshop)"
+    description: "Experimental color composition exploring warm and cool contrasts"
+    categories:
+      - abstract
+      - digital
+      - color-study
+    tools:
+      - Adobe Photoshop
+      - Wacom Tablet
+      - Custom Brushes
+    
+  - title: "Character Design Concept"
+    year: 2023
+    medium: "Digital Art (Procreate)"
+    description: "Fantasy character design with detailed costume and accessories"
+    categories:
+      - digital
+      - character-design
+      - fantasy
+    tools:
+      - Procreate
+      - iPad Pro
+      - Reference Photos
+    
+  - title: "Urban Cityscape"
+    year: 2023
+    medium: "Ink and Watercolor"
+    description: "City street scene captured during golden hour"
+    categories:
+      - traditional
+      - urban
+      - mixed-media
+    tools:
+      - India Ink
+      - Watercolor Paints
+      - Watercolor Paper
+      - Fine Liner Pens
+    
+  - title: "Geometric Pattern Study"
+    year: 2023
+    medium: "Digital Art"
+    description: "Mathematical patterns and symmetrical designs"
+    categories:
+      - abstract
+      - digital
+      - geometric
+      - patterns
+    tools:
+      - Adobe Illustrator
+      - Vector Graphics
+      - Symmetry Tools
+    
+  - title: "Nature Study - Botanical"
+    year: 2024
+    medium: "Colored Pencils"
+    description: "Detailed study of local flora with scientific accuracy"
+    categories:
+      - traditional
+      - nature
+      - botanical
+      - study
+    tools:
+      - Prismacolor Pencils
+      - Bristol Paper
+      - Magnifying Glass
+    
+  - title: "Night Sky Composition"
+    year: 2023
+    medium: "Acrylic on Canvas"
+    description: "Starry night scene with Milky Way galaxy visible"
+    categories:
+      - traditional
+      - landscapes
+      - astronomy
+      - acrylic
+    tools:
+      - Acrylic Paints
+      - Canvas Board
+      - Flat Brushes
+      - Round Brushes

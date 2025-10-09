@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Certifications</title>
+  <title>My Drawings</title>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>$ show certifications</h1>
+  <h1>$ show artworks</h1>
 
   <div class="prompt">
-    <span>➜  select skill:</span>
-    <select id="skillSelect">
+    <span>➜  filter by:</span>
+    <select id="categorySelect">
       <option value="all">-- all --</option>
     </select>
   </div>
 
-  <div id="cert-list">Loading certifications...</div>
+  <div id="drawings-list">Loading artworks...</div>
 
 <a href="index.html">$ back to home</a>
 
@@ -26,8 +26,8 @@ $ <button class="theme-toggle" id="themeToggle">Dark mode [ ]</button>
   <!-- js-yaml library -->
   <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
   <script>
-    const container = document.getElementById('cert-list');
-    const select = document.getElementById('skillSelect');
+    const container = document.getElementById('drawings-list');
+    const select = document.getElementById('categorySelect');
     const themeToggle = document.getElementById('themeToggle');
 
     // Theme toggle functionality
@@ -49,51 +49,57 @@ $ <button class="theme-toggle" id="themeToggle">Dark mode [ ]</button>
     });
 
     // Initialize theme on page load
-    initTheme();
-
-    // Fetch the YAML file
-    fetch('certifications.yaml?cb='+ new Date().getTime())
+    initTheme();    // Fetch the YAML file
+    fetch('drawings.yaml?cb='+ new Date().getTime())
       .then(response => response.text())
       .then(yamlText => {
         const data = jsyaml.load(yamlText);
 
-        // Gather unique skills
-        const skills = new Set();
-        data.certifications.forEach(cert => cert.skills.forEach(skill => skills.add(skill)));
-        [...skills].sort().forEach(skill => {
+        // Gather unique categories
+        const categories = new Set();
+        data.drawings.forEach(drawing => drawing.categories.forEach(category => categories.add(category)));
+        [...categories].sort().forEach(category => {
           const opt = document.createElement('option');
-          opt.value = skill;
-          opt.textContent = skill;
+          opt.value = category;
+          opt.textContent = category;
           select.appendChild(opt);
         });
 
-        // Function to render filtered certifications
-        function renderCerts(filterSkill = 'all') {
+        // Function to render filtered drawings
+        function renderDrawings(filterCategory = 'all') {
           let output = "";
-          const filtered = (filterSkill === 'all')
-            ? data.certifications
-            : data.certifications.filter(cert => cert.skills.includes(filterSkill));
+          const filtered = (filterCategory === 'all')
+            ? data.drawings
+            : data.drawings.filter(drawing => drawing.categories.includes(filterCategory));
 
           if (filtered.length === 0) {
-            output = `➜  No certifications found for "${filterSkill}".\n`;
+            output = `➜  No artworks found for "${filterCategory}".\n`;
           } else {
-            filtered.forEach(cert => {
-              output += `➜  ${cert.url}\n`;
-              output += `    └─ Skills: ${cert.skills.join(', ')}\n\n`;
+            filtered.forEach(drawing => {
+              output += `➜  ${drawing.title} - ${drawing.year}\n`;
+              output += `    └─ Medium: ${drawing.medium}\n`;
+              output += `    └─ Categories: ${drawing.categories.join(', ')}\n`;
+              if (drawing.description) {
+                output += `    └─ Description: ${drawing.description}\n`;
+              }
+              if (drawing.tools && drawing.tools.length > 0) {
+                output += `    └─ Tools: ${drawing.tools.join(', ')}\n`;
+              }
+              output += `\n`;
             });
           }
           container.textContent = output;
         }
 
         // Initial render (all)
-        renderCerts();
+        renderDrawings();
 
         // On dropdown change
-        select.addEventListener('change', e => renderCerts(e.target.value));
+        select.addEventListener('change', e => renderDrawings(e.target.value));
 
       })
       .catch(err => {
-        container.textContent = "Error loading certifications.yaml";
+        container.textContent = "Error loading drawings.yaml";
         console.error(err);
       });
   </script>

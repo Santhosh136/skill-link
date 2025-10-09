@@ -4,83 +4,55 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Santhosh — Portfolio</title>
-  <style>
-    body {
-      font-family: 'Courier New', monospace;
-      background-color: #fff;
-      color: #000;
-      padding: 40px;
-      max-width: 700px;
-      margin: auto;
-      line-height: 1.6;
-    }
-
-    h1, h2, p {
-      margin: 0 0 10px 0;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      margin: 15px 0;
-      object-fit: cover;
-    }
-
-    .prompt {
-      margin-top: 20px;
-    }
-
-    .arrow {
-      color: #555;
-    }
-
-    .links {
-      margin-top: 20px;
-    }
-
-    .links div {
-      margin-bottom: 5px;
-    }
-
-    .comment {
-      color: #777;
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>➜ Hello, I'm Santhosh 👋</h1>
+  <h1>$ whoami</h1>
 
-  <div class="comment"># Software Engineer | Builder of scalable backends | Curious tinkerer</div>
+➜  Hello, I'm <strong>Santhosh</strong> 👋
+➜  Love to learn and share knowledge 📚
+➜  Software Engineer by profession 💻, Artist by passion 🎨
 
-  <img src="profile.jpg" alt="Santhosh Picture" />
 
-  <div class="prompt">
-    <span class="arrow">➜</span> <span>About me:</span><br />
-    <p>
-      Passionate about designing clean, efficient, and scalable systems.  
-      I love working with Python, Java, and Node.js to build distributed applications, and occasionally explore IoT and automation.
-    </p>
-  </div>
+$ ls ~/pages
+└─ <a href="skills.html">Certifications</a>
+└─ <a href="drawings.html">Artworks</a>
 
-  <div class="links">
-    <div><span class="arrow">➜</span> <a href="https://github.com/Santhosh136" target="_blank">GitHub</a></div>
-    <div><span class="arrow">➜</span> <a href="https://linkedin.com/in/santhosh-selvaraj" target="_blank">LinkedIn</a></div>
-    <div><span class="arrow">➜</span> <a href="skills.html">Skills</a></div>
-    <div><span class="arrow">➜</span> <a href="drawings.html">My Drawings</a></div>
-  </div>
 
-  <div class="comment" style="margin-top: 40px;">
-    # Built with HTML, YAML & GitHub Pages automation ✨
-  </div>
+$ ls ~/links
+└─ <a href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank">GitHub</a>
+└─ <a href="https://linkedin.com/in/YOUR_LINKEDIN_USERNAME" target="_blank">LinkedIn</a>
+
+
+$ echo $THANK_YOU
+Thanks for visiting!
+
+$ <button class="theme-toggle" id="themeToggle">Dark mode [ ]</button>
+
+  <script>
+    const themeToggle = document.getElementById('themeToggle');
+
+    // Theme toggle functionality
+    function initTheme() {
+      const savedTheme = localStorage.getItem('theme');
+      if (savedTheme === 'dark') {
+        document.body.classList.add('dark-theme');
+        themeToggle.textContent = 'Dark mode [X]';
+      } else {
+        themeToggle.textContent = 'Dark mode [ ]';
+      }
+    }
+
+    themeToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-theme');
+      const isDark = document.body.classList.contains('dark-theme');
+      themeToggle.textContent = isDark ? 'Dark mode [X]' : 'Dark mode [ ]';
+      localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+
+    // Initialize theme on page load
+    initTheme();
+  </script>
 </body>
 </html>
